@@ -1,0 +1,55 @@
+{
+   bound_relative_root: {
+      x: 0.5,
+      y: 0,
+      z: 0.5,
+   },
+   materials: [
+      {
+         name: "Comet_mat",
+         parameters: [
+            {
+               baseColor: "Comet_BaseColor",
+            },
+            {
+               baseColorTint: [
+                  0.5,
+                  0.5,
+                  0.5,
+                  1,
+               ],
+            },
+            {
+               metallic: 0,
+            },
+            {
+               roughness: 1,
+            },
+            {
+               opacity: null,
+            },
+         ],
+         source: "build/sceneform_sdk/default_materials/obj_material.sfm",
+      },
+   ],
+   model: {
+      attributes: [
+         "Position",
+         "TexCoord",
+         "Orientation",
+      ],
+      collision: {},
+      file: "sampledata/models/Comet.obj",
+      name: "Comet",
+      recenter: "root",
+      scale: 0.101729,
+   },
+   samplers: [
+      {
+         file: "sampledata/models/Comet_BaseColor.png",
+         name: "Comet_BaseColor",
+         pipeline_name: "Comet_BaseColor.png",
+      },
+   ],
+   version: "0.52:1",
+}

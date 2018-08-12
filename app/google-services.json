@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "716574876918",
+    "firebase_url": "https://yellow-space.firebaseio.com",
+    "project_id": "yellow-space",
+    "storage_bucket": "yellow-space.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:716574876918:android:79495bf48a88c6e8",
+        "android_client_info": {
+          "package_name": "com.yellowspace.coffee.yellowspace"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "716574876918-0uvsifqgadb8kvhtaaudba1uqoo6h7jq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCc_6ANm6uTIrOjluGvVG9AEzGSorg56-I"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

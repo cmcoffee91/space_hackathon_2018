@@ -4,7 +4,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.yellowspace.coffee.yellowspace"
-        minSdkVersion 15
+        minSdkVersion 24
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -16,13 +16,76 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    implementation 'com.android.support:support-v4:27.1.1'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    implementation 'com.google.firebase:firebase-core:16.0.1'
+    implementation 'com.google.firebase:firebase-messaging:17.0.0'
+
+    implementation 'com.google.firebase:firebase-auth:16.0.2'
+
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
+    implementation 'com.android.support:support-v4:27.1.1'
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+
+
+    implementation "com.google.ar.sceneform.ux:sceneform-ux:1.4.0"
+
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+
+
 }
+
+apply plugin: 'com.google.gms.google-services'
+
+apply plugin: 'com.google.ar.sceneform.plugin'
+
+sceneform.asset('sampledata/models/Astronaut.obj',
+        'default',
+        'sampledata/models/Astronaut.sfa',
+        'src/main/assets/Astronaut')
+
+sceneform.asset('sampledata/models/andy.obj',
+        'default',
+        'sampledata/models/andy.sfa',
+        'src/main/assets/andy')
+
+
+sceneform.asset('sampledata/models/1227 Earth.obj',
+        'default',
+        'sampledata/models/1227 Earth.sfa',
+        'src/main/assets/1227 Earth')
+
+sceneform.asset('sampledata/models/Comet.obj',
+        'default',
+        'sampledata/models/Comet.sfa',
+        'src/main/assets/Comet')
+
+sceneform.asset('sampledata/models/flying sacuer.obj',
+        'default',
+        'sampledata/models/flying sacuer.sfa',
+        'src/main/assets/flying sacuer')
+
+sceneform.asset('sampledata/models/SpaceRover.obj',
+        'default',
+        'sampledata/models/SpaceRover.sfa',
+        'src/main/assets/SpaceRover')
+
+sceneform.asset('sampledata/models/alien.obj',
+        'default',
+        'sampledata/models/alien.sfa',
+        'src/main/assets/alien')
