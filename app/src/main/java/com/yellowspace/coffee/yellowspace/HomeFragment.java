@@ -12,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -160,7 +161,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-       /*  //Disable ViewPager Swipe
+       //Disable ViewPager Swipe
        viewPager.setOnTouchListener(new View.OnTouchListener()
         {
             @Override
@@ -169,7 +170,7 @@ public class HomeFragment extends Fragment {
                 return true;
             }
         });
-        */
+
 
         setupViewPager(viewPager);
 
@@ -220,8 +221,9 @@ public class HomeFragment extends Fragment {
 
 
         adapter.addFragment(arFrag);
-        adapter.addFragment(feedfrag);
         adapter.addFragment(searchFrag);
+        adapter.addFragment(feedfrag);
+
         viewPager.setAdapter(adapter);
     }
 

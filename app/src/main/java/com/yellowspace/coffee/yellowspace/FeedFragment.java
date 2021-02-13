@@ -5,6 +5,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -21,7 +22,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 
@@ -47,6 +51,10 @@ public class FeedFragment extends Fragment {
     private List<Feed> feedList;
 
     private OnFragmentInteractionListener mListener;
+
+    private int day = -10;
+    String date = "";
+    List<String> dates;
 
     public FeedFragment() {
         // Required empty public constructor
@@ -89,18 +97,48 @@ public class FeedFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_feed, container, false);
 
         feedList = new ArrayList<>();
+        dates = new ArrayList<>();
 
         mVideoRecyclerView = (RecyclerView) v.findViewById(R.id.feed_recycler_view);
         mVideoRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mVideoAdapter = new FeedAdapter(feedList, getActivity());
         mVideoRecyclerView.setAdapter(mVideoAdapter);
 
-        new TheTask().execute();
+
+
+        //2018-08-10
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        for(int i = 1;i < 11;i++)
+        {
+
+            day++;
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(new Date());
+            calendar.add(Calendar.DAY_OF_YEAR, day);
+            Date newDate = calendar.getTime();
+
+
+            date = dateFormat.format(newDate);
+
+            Log.e("feedFrag", "date in loop " + date);
+
+
+            (new Handler()).postDelayed(this::runTask, 1000);
+
+
+           // date =
+        }
 
         mVideoAdapter.notifyDataSetChanged();
 
 
         return v;
+    }
+
+    private void runTask()
+    {
+        new TheTask().execute();
     }
 
     private class TheTask extends AsyncTask<Void,Void,Void>
@@ -125,7 +163,7 @@ public class FeedFragment extends Fragment {
             try
             {
 
-                String url = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY";
+                String url = "https://api.nasa.gov/planetary/apod?date=" +  date +  "&api_key=js9IyAZCcpvR5JHTPytjZ8iBhY1wh4U98GTyHWGo";
 
                 String response = getUrlString(url);
 
